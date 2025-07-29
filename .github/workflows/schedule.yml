@@ -6,6 +6,7 @@ on:
 
 jobs:
   hello_world:
+    # if: github.event.schedule
     runs-on: ubuntu-latest
     steps:
       - name: Echo current time
