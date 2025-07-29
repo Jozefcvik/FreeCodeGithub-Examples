@@ -1,3 +1,5 @@
+name: scheduler - every 5 minutes
+
 on:
   schedule:
     - cron: '*/5 * * * *'
