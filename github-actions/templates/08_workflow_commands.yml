@@ -37,8 +37,21 @@ jobs:
       - name: Fail workflow
         run: echo "::error ::This is an error message"
 
-      - name: show variables
+      - name: show $ACTION_ENV variable
+        run: echo $ACTION_ENV
+
+      - name: Print default GitHub env vars
+        run: env
+
+      - name: Show GitHub context
         run: |
-          echo $GITHUB_ENV
-          echo $GITHUB_PATH
-          echo $GITHUB_OUTPUT
+          echo "Repo: $GITHUB_REPOSITORY"
+          echo "Ref: $GITHUB_REF"
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
+
+    #  - name: Use Secrets as Env variable
+    #    run: echo "Secret Value: $MY_SECRET"
+    #    env:
+    #      MY_SECRET: ${{ secrets.MY_SECRET }}
