@@ -36,3 +36,9 @@ jobs:
 
       - name: Fail workflow
         run: echo "::error ::This is an error message"
+
+      - name: show variables
+        run: |
+          echo $GITHUB_ENV
+          echo $GITHUB_PATH
+          echo $GITHUB_OUTPUT
