@@ -40,4 +40,5 @@ jobs:
       - name: show variables
         run: |
           echo $ACTION_ENV
-          echo $result
+          echo "###### ALL ENV ######"
+          echo env
