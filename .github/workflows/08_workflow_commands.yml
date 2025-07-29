@@ -39,6 +39,6 @@ jobs:
 
       - name: show variables
         run: |
-          echo ${{ GITHUB_ENV }}
-          echo ${{ GITHUB_PATH }}
-          echo ${{ GITHUB_OUTPUT }}
+          echo $GITHUB_ENV
+          echo $GITHUB_PATH
+          echo $GITHUB_OUTPUT
