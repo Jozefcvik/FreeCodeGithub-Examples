@@ -37,8 +37,8 @@ jobs:
       - name: Fail workflow
         run: echo "::error ::This is an error message"
 
-      - name: show variables
-        run: |
-          echo $ACTION_ENV
-          echo "###### ALL ENV ######"
-          echo env
+      - name: show $ACTION_ENV variable
+        run: echo $ACTION_ENV
+
+      - name: Print default GitHub env vars
+        run: env
