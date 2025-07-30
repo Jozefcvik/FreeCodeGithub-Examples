@@ -1,4 +1,4 @@
-name: Jozefs test
+name: mytest
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  Jozefs test:
+  mytest:
     runs-on: ubuntu-latest
     steps:
       - name: Greetings from GitHuba Action
