@@ -10,8 +10,8 @@ on:
 
 jobs:
   Jozef´s test:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Greetings from GitHuba Action
-      run: echo "Hello ${{ inputs.name }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greetings from GitHuba Action
+        run: echo "Hello ${{ inputs.name }}"
 
