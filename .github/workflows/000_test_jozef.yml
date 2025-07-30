@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  Jozef´s test:
+  Jozefs test:
     runs-on: ubuntu-latest
     steps:
       - name: Greetings from GitHuba Action
