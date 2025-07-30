@@ -28,3 +28,4 @@ jobs:
     steps:
       - name: job03 STARTED
         run: echo "JOB03 STARTED"
+        exit: 1
