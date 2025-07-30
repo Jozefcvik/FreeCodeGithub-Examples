@@ -1,0 +1,28 @@
+name: testneeds
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        - description: Name of the employee
+        - required: true
+        - type: string
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job01 STARTED
+      - run: echo "JOB01 STARTED"
+
+  job02:
+    runs-on: ubunut-latest
+    steps:
+      - name: job02 STARTED
+      - run: echo "JOB02 STARTED"
+
+  job03:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job03 STARTED
+      - run: echo "JOB03 STARTED"
