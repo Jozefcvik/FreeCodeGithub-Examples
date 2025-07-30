@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        - description: Name of the employee
-        - required: true
-        - type: string
+        description: Name of the employee
+        required: true
+        type: string
 
 jobs:
   job01:
