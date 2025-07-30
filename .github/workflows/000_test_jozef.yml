@@ -1,0 +1,17 @@
+name: Jozef´s test
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Name of employee
+        required: true
+        type: string
+
+jobs:
+  Jozef´s test:
+  runs-on: Ubuntu-latest
+    steps:
+      - name: Greetings from GitHuba Action
+        run: echo "Hello ${{ inputs.name }}"
+
