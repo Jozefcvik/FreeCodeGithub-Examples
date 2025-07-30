@@ -12,6 +12,11 @@ jobs:
   mytest:
     runs-on: ubuntu-latest
     steps:
-      - name: Greetings from GitHuba Action
+      env:
+        MY_ACTION: ${{ github.action }}
+      - name: GitHuba Action
+        run: echo "$MY_ACTION"
+
+      - name: Greetings from GitHub Action
         run: echo "Hello ${{ inputs.name }}"
 
