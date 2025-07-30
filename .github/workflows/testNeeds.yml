@@ -27,5 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: job03 STARTED
-        run: echo "JOB03 STARTED"
-        exit: 1
+        run: |
+          echo "JOB03 STARTED"
+          exit 1
+        
