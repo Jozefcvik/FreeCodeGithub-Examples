@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Dump GitHub context
+        run: echo '${{ toJson(github) }}'
+
       - name: GitHuba Action
         run: echo "$MY_ACTION"
         env:
