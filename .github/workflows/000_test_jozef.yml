@@ -1,4 +1,4 @@
-name: Jozef´s test
+name: Jozefs test
 
 on:
   workflow_dispatch:
