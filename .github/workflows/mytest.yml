@@ -16,10 +16,10 @@ jobs:
       - name: Dump GitHub context
         run: echo '${{ toJson(github) }}'
 
-      - name: GitHuba Action
-        run: echo "$MY_ACTION"
+      - name: GitHub Action
+        run: echo "$MY_ACTOR"
         env:
-          MY_ACTION: ${{ github.action }}
+          MY_ACTOR: ${{ github.actor }}
 
       - name: Greetings from GitHub Action
         run: echo "Hello ${{ inputs.name }}"
