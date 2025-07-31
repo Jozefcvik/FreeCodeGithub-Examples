@@ -1,0 +1,52 @@
+Sure! Here's a simple example of a GitHub composite action — a custom, reusable action made of shell commands 
+and steps — ideal when you want to reuse logic across workflows.
+
+.your-repo/
+└── .github/
+    └── actions/
+        └── say-hello/
+            └── action.yml
+
+
+
+✨ 1. Define the Composite Action: .github/actions/say-hello/action.yml
+
+name: Say Hello
+description: A simple composite action to greet a user
+inputs:
+  name:
+    description: 'Name of the person to greet'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Say hello
+      run: echo "👋 Hello, ${{ inputs.name }}!"
+
+
+
+⚙️ 2. Use the Composite Action in a Workflow
+
+
+.github/workflows/use-composite.yml
+
+name: Use Composite Action
+
+on: [push]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Say hello using composite action
+        uses: ./.github/actions/say-hello
+        with:
+          name: "Alice"
+
+
+✅ Result:
+
+👋 Hello, Alice!
