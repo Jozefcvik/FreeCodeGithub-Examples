@@ -22,5 +22,5 @@ jobs:
 
       - name: Run the script
         run: |
-          chmod u+x ./myscript.sh
-          ./myscript.sh
+          chmod u+x ./my-script.sh
+          ./my-script.sh
