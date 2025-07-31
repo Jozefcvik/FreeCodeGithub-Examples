@@ -17,6 +17,10 @@ jobs:
         with:
           name: build-artifact
           path: build.txt
+          retention-days: 1
+            # Valid values:
+            # Minimum: 1
+            # Maximum: 90 (for public repos) or 400 (for private repos with GitHub Enterprise)
 
   use-artifact:
     needs: build
