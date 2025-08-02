@@ -8,7 +8,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        exit: 1
 
       - name: Create build file
         run: echo "Build artifact content" > build.txt
