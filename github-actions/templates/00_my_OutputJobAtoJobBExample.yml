@@ -1,0 +1,40 @@
+Sure! Here's a simple GitHub Actions example showing how to use jobs.<job_id>.outputs to create and 
+pass outputs between jobs using a dependency (needs:).
+
+🛠️ Goal:
+One job (job_a) creates some output (e.g., a version number).
+
+Another job (job_b) runs after job_a and uses that output.
+
+📄 Example Workflow: .github/workflows/output-example.yml
+
+name: Job Outputs Example
+
+on: [push]
+
+jobs:
+  job_a:
+    runs-on: ubuntu-latest
+    outputs:
+      app_version: ${{ steps.get_version.outputs.version }}
+    steps:
+      - id: get_version
+        run: echo "version=1.2.3" >> $GITHUB_OUTPUT
+
+  job_b:
+    runs-on: ubuntu-latest
+    needs: job_a
+    steps:
+      - run: echo "Using version ${{ needs.job_a.outputs.app_version }}"
+🔍 How It Works:
+job_a:
+
+Runs a step that outputs version=1.2.3.
+
+This is captured using the step ID get_version and assigned to the job's outputs.
+
+job_b:
+
+Depends on job_a (needs: job_a).
+
+Accesses the output with: needs.job_a.outputs.app_version.
