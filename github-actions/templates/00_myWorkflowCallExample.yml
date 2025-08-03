@@ -1,0 +1,65 @@
+🔁 workflow_call in GitHub Actions
+The workflow_call trigger allows one workflow to be reused by another workflow. 
+It's a key part of creating reusable workflows, enabling modular and DRY (Don't Repeat Yourself) CI/CD pipelines.
+
+📌 Definition
+A workflow using workflow_call is not triggered by an event like push or pull_request, 
+but by another workflow via uses:.
+
+📄 Example: Reusable Workflow (.github/workflows/reusable.yml)
+
+
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      username:
+        required: true
+        type: string
+      environment:
+        required: false
+        type: string
+        default: "dev"
+    secrets:
+      MY_SECRET:
+        required: true
+
+jobs:
+  print-info:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello ${{ inputs.username }} in ${{ inputs.environment }}"
+      - run: echo "Secret is ${{ secrets.MY_SECRET }}"
+📌 Usage
+You can call the above reusable workflow from another workflow using uses:.
+
+
+
+📄 Example: Caller Workflow (.github/workflows/caller.yml)
+
+name: Caller Workflow
+
+on: [push]
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      username: johndoe
+      environment: prod
+    secrets:
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+
+You can also reference a workflow from another repository using:
+uses: user/repo/.github/workflows/workflow.yml@main
+
+✅ Benefits
+Reusability across multiple workflows/repos
+Centralized logic for common CI/CD tasks
+Easier maintenance and scalability
+
+⚠️ Notes
+Reusable workflows must be stored in the .github/workflows/ directory.
+Inputs can be string, boolean, or number.
+Secrets must be explicitly passed — they are not inherited.
